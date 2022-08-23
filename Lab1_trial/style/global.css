@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding: 40px 0px;
+    margin: 0 auto;
+    max-width: 1441px;
+    width: 100%;
+}
+
+.content_of_section{
+    max-width: 1207px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+    padding-bottom: 80px;
+}
+
+html{
+    font-family: 'Rubik', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    font-style: normal;
+}
