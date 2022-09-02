@@ -1,6 +1,5 @@
 header{
-    max-width: 1441px;
-    width: 100%;
+    width: 95%;
     display: flex;
     justify-content: center;
 }
@@ -49,6 +48,12 @@ header{
 .header_button{
     margin-right: 50px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.header_button:hover{
+    color: red;
 }
 
 .header_button:last-child{
@@ -68,6 +73,10 @@ header{
     font-weight: 700;
 }
 
+.signIn_button:hover{
+    color: red;
+}
+
 .signUp_button{
     align-items: center;
     cursor: pointer;
@@ -76,4 +85,34 @@ header{
     padding: 10px 30px;
     font-weight: 700;
     color: #F53855;
+}
+
+.menu_button{
+    display: none;
+}
+
+.image_of_menu{
+    max-width: 40px;
+}
+
+@media screen and (max-width: 1150px){
+    .menu_button{
+        display: block;
+        position: relative;
+    }
+    .header_buttons{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 473px){
+    .sign_buttons{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1150px){
+    .header_button{
+        margin: 0 auto;
+    }
 }

@@ -3,8 +3,6 @@
     justify-content: center;
     margin-top: 90px;
     padding-bottom: 80px;
-    max-width: 1441px;
-    width: 100%;
 }
 
 .image_part1{
@@ -27,6 +25,7 @@
 
 .get_started_button:hover{
     cursor: pointer;
+    background-color: brown;
 }
 
 .get_started_text{
@@ -62,4 +61,11 @@
     margin-top: -10px;
     padding: 7px;
     filter: blur(30px);
+}
+
+@media screen and (max-width: 980px){
+    .get_started_button, .get_started_shadow{
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

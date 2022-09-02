@@ -17,3 +17,12 @@ footer{
     line-height: 30px;
     color: #AFB5C0;
 }
+
+@media screen and (max-width: 590px){
+    .content_of_section.foot{
+        flex-direction: column;
+    }
+    .laslesVPN.foot{
+        display: none;
+    }
+}
