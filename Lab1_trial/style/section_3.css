@@ -122,11 +122,13 @@
 .subscribe_button{
     border-radius: 7px;
     margin: auto 0;
-    padding: 18px 36px;
+    padding: 18px 20px;
     background-color: red;
     color: white;
     font-size: 1.6rem;
     font-weight: 700;
+    text-align: left;
+    width: 90%;
 }
 
 .subscribe_button:hover{
@@ -148,4 +150,52 @@
 .button{
     padding: 40px;
     width: 50%;
+}
+
+@media screen and (max-width: 1096px){
+    .card_part3{
+        justify-content: center;
+    }
+    .card3.c1, .card3.c3{
+        display: none;
+    }
+
+    .card3.c2{
+        max-width: 295px;
+        width: 100%;
+    }
+
+    .subscribe_button{
+        max-width: 190px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 980px){
+    .card3.c2{
+        text-align: left;
+    }
+    .subscribe_for{
+        display: block;
+    }
+    .subscribe_content_left,
+    .subscribe_content_left h1,
+    .subscribe_content_left h2,
+    .subscribe_shadow,
+    .button{
+        margin: 10px auto;
+    }
+    .subscribe_content_right{
+        width: 100%;
+    }
+    .button{
+        width: 100%;
+        padding: 0;
+    }
+    .subscribe_shadow{
+        max-width: 190px;
+    }
+    .subscribe_button{
+        text-align: center;
+    }
 }

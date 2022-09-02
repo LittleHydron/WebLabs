@@ -26,3 +26,18 @@ html{
     font-weight: 400;
     font-style: normal;
 }
+
+@media screen and (max-width: 1204px){
+    body{
+        padding: 0 40px;
+    }
+}
+
+@media screen and (max-width: 980px){
+    .image{
+        display: none;
+    }
+    body{
+        text-align: center;
+    }
+}

@@ -12,10 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style/style.css">
+
+    <script src="script/script.js"></script>
 </head>
 <body>
 <header>
     <div class="content_of_section head">
+        <div class="menu_button" onclick="menu_action()">
+            <img class="image_of_menu" src="images/header/menu-icon.svg" alt="menu_button">
+        </div>
         <div class="laslesVPN">
             <div class="logo_image">
                 <img src="images/section_one/logo.png" alt="LOGO">
@@ -27,13 +32,13 @@
                 VPN
             </div>
         </div>
-        <div class="header_buttons">
-            <div class="header_button">About</div>
-            <div class="header_button">Features</div>
-            <div class="header_button">Pricing</div>
-            <div class="header_button">Testimonials</div>
-            <div class="header_button">Help</div>
-        </div>
+        <nav class="header_buttons">
+            <a href="#" class="header_button">About</a>
+            <a href="#" class="header_button">Features</a>
+            <a href="#" class="header_button">Pricing</a>
+            <a href="#" class="header_button">Testimonials</a>
+            <a href="#" class="header_button">Help</a>
+        </nav>
         <div class="sign_buttons">
             <div class="signIn_button">
                 Sign In
@@ -45,212 +50,226 @@
     </div>
 </header>
 
-<div class="section_1">
+<section class="menu" id="menu">
+    <nav class="menu_buttons">
+        <ul class = "menu_list">
+            <li><a href="#" class="header_button">About</a></li>
+            <li><a href="#" class="header_button">Features</a></li>
+            <li><a href="#" class="header_button">Pricing</a></li>
+            <li><a href="#" class="header_button">Testimonials</a></li>
+            <li><a href="#" class="header_button">Help</a></li>
+        </ul>
+    </nav>
+</section>
+
+<section class="section_1">
     <div class="content_of_section s1">
-        <div class="text_part1">
-            <div class="big_text1">
+        <section class="text_part1">
+            <article class="big_text1">
                 Want anything to be easy with <strong>LaslesVPN.</strong>
-            </div>
-            <div class="small_text1">
+            </article>
+            <article class="small_text1">
                 Provide a network for all your needs with ease and fun using <strong>LaslesVPN</strong> discover
                 interesting
                 features from us.
-            </div>
+            </article>
             <div class="get_started_button">
                 <div class="get_started_text">Get Started</div>
             </div>
             <div class="get_started_shadow">
             </div>
 
-        </div>
-        <div class="image_part1">
+        </section>
+        <section class="image image_part1">
             <img src="images/section_one/section_1_1.png" alt="Man_with_stuff">
-        </div>
+        </section>
     </div>
 
-</div>
+</section>
 
-<div class="section_2">
+<section class="section_2">
     <div class="content_of_section">
-        <div class="image_part1">
+        <section class="image image_part1">
             <img src="images/section_two/section_2_1.png" alt="Man_with_stuff">
-        </div>
-        <div class="text_part2">
+        </section>
+        <section class="text_part2">
             <div class="big_text2">
                 We Provide Many Features You Can Use
             </div>
             <div class="small_text2">
                 You can explore the features that we provide with fun and have their own functions each feature.
             </div>
-            <div class="list">
-                <div class="list_item">
-                    <div class="circle_image">
+            <ul class="list">
+                <li class="list_item">
+                    <figure class="circle_image">
                         <img src="images/section_two/check-circle.png" alt="check_circle.">
-                    </div>
+                    </figure>
                     <div class="circle_text">
                         Powerful online protection.
                     </div>
-                </div>
-                <div class="list_item">
-                    <div class="circle_image">
+                </li>
+                <li class="list_item">
+                    <figure class="circle_image">
                         <img src="images/section_two/check-circle.png" alt="check_circle.">
-                    </div>
+                    </figure>
                     <div class="circle_text">
                         Internet without borders.
                     </div>
-                </div>
-                <div class="list_item">
-                    <div class="circle_image">
+                </li>
+                <li class="list_item">
+                    <figure class="circle_image">
                         <img src="images/section_two/check-circle.png" alt="check_circle.">
-                    </div>
+                    </figure>
                     <div class="circle_text">
                         Supercharged VPN.
                     </div>
-                </div>
-                <div class="list_item">
-                    <div class="circle_image">
+                </li>
+                <li class="list_item">
+                    <figure class="circle_image">
                         <img src="images/section_two/check-circle.png" alt="check_circle.">
-                    </div>
+                    </figure>
                     <div class="circle_text">
                         No specific time limits.
                     </div>
-                </div>
-            </div>
-        </div>
+                </li>
+            </ul>
+        </section>
     </div>
-</div>
+</section>
 
-<div class="section_3">
+<section class="section_3">
     <div class="content_of_section sec3">
-        <div class="text_part3">
-            <div class="big_text3">
+        <section class="text_part3">
+            <article class="big_text3">
                 <h2>Trusted by Thousands<br>of Happy Customers</h2>
-            </div>
-            <div class="small_text3">
+            </article>
+            <article class="small_text3">
                 <h3>
                     These are the stories of our customers who have joined us with<br>great pleasure when using this
                     crazy feature.
                 </h3>
-            </div>
-        </div>
-        <div class="card_part3">
-            <div class="card3">
-                <div class="top">
-                    <div class="left3">
-                        <div class="image_part1">
+            </article>
+        </section>
+        <section class="card_part3">
+            <div class="card3 c1">
+                <section class="top">
+                    <section class="left3">
+                        <figure class="image_part1">
                             <img src="images/section_three/photo1.png" alt="Man1">
-                        </div>
-                        <div class="text_part_left3">
-                            <div class="name">
+                        </figure>
+                        <section class="text_part_left3">
+                            <article class="name">
                                 Viezh Robert
-                            </div>
-                            <div class="address">
+                            </article>
+                            <article class="address">
                                 Warsaw, Poland
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right3">
-                        <div class="text_part_right3">
+                            </article>
+                        </section>
+                    </section>
+                    <section class="right3">
+                        <article class="text_part_right3">
                             4.5
-                        </div>
-                        <div class="image_part_right3">
+                        </article>
+                        <figure class="image_part_right3">
                             <img src="images/section_three/star.png" alt="star">
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom">
+                        </figure>
+                    </section>
+                </section>
+                <section class="bottom">
                     “Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far
                     there have been no problems."
-                </div>
+                </section>
             </div>
-            <div class="card3">
-                <div class="top">
-                    <div class="left3">
-                        <div class="image_part1">
+            <div class="card3 c2">
+                <section class="top">
+                    <section class="left3">
+                        <figure class="image_part1">
                             <img src="images/section_three/photo2.png" alt="Woman2">
-                        </div>
-                        <div class="text_part_left3">
-                            <div class="name">
+                        </figure>
+                        <section class="text_part_left3">
+                            <article class="name">
                                 Yessica Christy
-                            </div>
-                            <div class="address">
+                            </article>
+                            <article class="address">
                                 Warsaw, Poland
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right3">
-                        <div class="text_part_right3">
+                            </article>
+                        </section>
+                    </section>
+                    <section class="right3">
+                        <article class="text_part_right3">
                             4.5
-                        </div>
-                        <div class="image_part_right3">
+                        </article>
+                        <figure class="image_part_right3">
                             <img src="images/section_three/star.png" alt="star">
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom">
+                        </figure>
+                    </section>
+                </section>
+                <section class="bottom">
                     “I like it because I like to travel far and still can connect with high speed.”.
-                </div>
+                </section>
             </div>
-            <div class="card3">
-                <div class="top">
-                    <div class="left3">
-                        <div class="image_part1">
+            <div class="card3 c3">
+                <section class="top">
+                    <section class="left3">
+                        <figure class="image_part1">
                             <img src="images/section_three/photo3.png" alt="Man3">
-                        </div>
-                        <div class="text_part_left3">
-                            <div class="name">
+                        </figure>
+                        <section class="text_part_left3">
+                            <article class="name">
                                 Kim Young Jou
-                            </div>
-                            <div class="address">
+                            </article>
+                            <article class="address">
                                 Warsaw, Poland
-                            </div>
-                        </div>
-                    </div>
-                    <div class="right3">
-                        <div class="text_part_right3">
+                            </article>
+                        </section>
+                    </section>
+                    <section class="right3">
+                        <article class="text_part_right3">
                             4.5
-                        </div>
-                        <div class="image_part_right3">
+                        </article>
+                        <figure class="image_part_right3">
                             <img src="images/section_three/star.png" alt="star">
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom">
+                        </figure>
+                    </section>
+                </section>
+                <section class="bottom">
                     “This is very unusual for my business that currently requires a virtual private network that has
                     high security.”.
-                </div>
+                </section>
             </div>
-        </div>
-        <div class="subscribe_for">
-            <div class="subscribe_content_left">
+        </section>
+        <section class="subscribe_for">
+            <section class="subscribe_content_left">
                 <h1>
                     Subscribe Now for Get Special Features!
                 </h1>
                 <h2>
                     Let's subscribe with us and find the fun.
                 </h2>
-            </div>
-            <div class="subscribe_content_right">
+            </section>
+            <section class="subscribe_content_right">
                 <div class="button">
-                    <input type="button" value="Subscribe now" class="subscribe_button">
+                    <div class="subscribe_button">
+                        Subscribe now
+                    </div>
                     <div class="subscribe_shadow">
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </section>
     </div>
 
-</div>
+</section>
 
 <footer>
     <div class="content_of_section foot">
-        <div class="left_part4">
+        <section class="left_part4">
             ©2020Lasles<strong>VPN</strong>
-        </div>
-        <div class="icons">
+        </section>
+        <section class="icons">
             <img src="images/footer/Socials.png" alt="socials">
-        </div>
-        <div class="laslesVPN">
+        </section>
+        <figure class="laslesVPN foot">
             <div class="logo_image">
                 <img src="images/section_one/logo.png" alt="LOGO">
             </div>
@@ -260,7 +279,7 @@
             <div class="VPNtext">
                 VPN
             </div>
-        </div>
+        </figure>
     </div>
 </footer>
 

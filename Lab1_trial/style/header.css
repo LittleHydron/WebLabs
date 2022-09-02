@@ -49,6 +49,8 @@ header{
 .header_button{
     margin-right: 50px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 .header_button:last-child{
@@ -76,4 +78,34 @@ header{
     padding: 10px 30px;
     font-weight: 700;
     color: #F53855;
+}
+
+.menu_button{
+    display: none;
+}
+
+.image_of_menu{
+    max-width: 40px;
+}
+
+@media screen and (max-width: 950px){
+    .menu_button{
+        display: block;
+        position: relative;
+    }
+    .header_buttons{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 473px){
+    .sign_buttons{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 950px){
+    .header_button{
+        margin: 0 auto;
+    }
 }
