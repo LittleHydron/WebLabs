@@ -7,12 +7,12 @@
 body{
     padding: 40px 0px;
     margin: 0 auto;
-    max-width: 1441px;
+    max-width: 2000px;
     width: 100%;
 }
 
 .content_of_section{
-    max-width: 1207px;
+    max-width: 83%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -42,7 +42,7 @@ html{
     }
 }
 
-@media screen and (min-width: 2560px){
+@media screen and (min-width: 1800px){
     html{
         font-size: 15px;
     }
