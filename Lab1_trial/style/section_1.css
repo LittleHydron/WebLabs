@@ -27,6 +27,7 @@
 
 .get_started_button:hover{
     cursor: pointer;
+    background-color: brown;
 }
 
 .get_started_text{

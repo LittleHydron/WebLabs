@@ -53,6 +53,10 @@ header{
     color: black;
 }
 
+.header_button:hover{
+    color: red;
+}
+
 .header_button:last-child{
     margin-right: 0;
 }
@@ -68,6 +72,10 @@ header{
     cursor: pointer;
     margin: 0 20px;
     font-weight: 700;
+}
+
+.signIn_button:hover{
+    color: red;
 }
 
 .signUp_button{

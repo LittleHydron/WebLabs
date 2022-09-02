@@ -133,6 +133,7 @@
 
 .subscribe_button:hover{
     cursor: pointer;
+    background-color: brown;
 }
 
 .subscribe_shadow{

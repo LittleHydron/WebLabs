@@ -2,7 +2,7 @@
     margin: -250px 0 auto auto;
     background-color: #e7ecff;
     clip-path: circle(0 at left top);
-    transition: clip-path 0.9s, margin 0.9s;
+    transition: margin 0.9s, clip-path 0.9s;
 }
 
 .menu_buttons {
