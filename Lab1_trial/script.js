@@ -116,7 +116,8 @@ let arrayOfObjects = [
     new Lighter("pokl", 10, 9, "Kokojamba"),
     new Lighter("akl", 120, 21, "Buzz"),
     new Lighter("fsg", 111, 113, "Borys"),
-    new Lighter("fs", 9, 11, "Pavlo")
+    new Lighter("fs", 9, 11, "Pavlo"),
+    new Lighter("fs", 9, 0, "Buzz")
 ];
 
 let currentArray = [...arrayOfObjects];
