@@ -11,28 +11,122 @@
 
 </head>
 <body>
-    <section id = "screen">
-        <section style="display: none; width: max-content; margin: auto;" id = "summary-power">
+    <header class="head">
+        <nav class="navigation">
+            <input type="button" class="link" onclick="switchToHome()" value="Home">
+            <input type="button" class="link" onclick="switchToAdding()" value="Add Lighter">
+            <input type="button" class="link" onclick="switchToEditing()" value="Edit Lighter">
+        </nav>
+    </header>
+    <section class="home-content" id="home-content">
+        <section id = "screen">
+            <section style="display: none; width: max-content; margin: auto;" id = "summary-power">
+
+            </section>
+        </section>
+        <section class="divide">
 
         </section>
-    </section>
-    <section class = "Form">
-        <div class="content">
-            <div class="container">
-                <div class = "Form-element"><input class = "button" type="button" id = "sort-by" value = "Sort by number of lamps" onclick="sortByLamps(currentArray)"></div>
-                <div class = "Form-element">
-                    <label for="input">Enter creator's name for search</label>
+        <section class = "Form">
+            <div class="home-content">
+                <div class="container">
+                    <div class = "Form-element"><input class = "button" type="button" id = "sort-by" value = "Sort by number of lamps" onclick="sortByLamps(currentArray)"></div>
+                    <div class = "Form-element">
+                        <label for="input">Enter creator's name for search</label>
+                    </div>
+                    <div class = "Form-element">
+                        <input type="text" id = "input">
+                    </div>
+                    <div class="Form-element">
+                        <input class = "button" type="button" id = "find-by-name" value = "Find by the name of creator" onclick="findByCreatorName(arrayOfObjects)">
+                    </div>
+                    <div class = "Form-element"><input class = "button" type="button" id = "count-summary-power" value = "Count Summary Power" onclick="countByPower(currentArray)"></div>
+                    <div class = "Form-element"><input class = "button" type="button" id = "reset" value = "Reset" onclick="reset()"></div>
                 </div>
-               <div class = "Form-element">
-                   <input type="text" id = "input">
-               </div>
-                <div class="Form-element">
-                   <input class = "button" type="button" id = "find-by-name" value = "Find by the name of creator" onclick="findByCreatorName(arrayOfObjects)">
-               </div>
-                <div class = "Form-element"><input class = "button" type="button" id = "count-summary-power" value = "Count Summary Power" onclick="countByPower(currentArray)"></div>
-                <div class = "Form-element"><input class = "button" type="button" id = "reset" value = "Reset" onclick="reset()"></div>
+            </div>
+        </section>
+    </section>
+
+    <section class="adding-form" id="adding-content">
+        <div class="field">
+            <div class="field-label">
+                <label for="type-field">Type</label>
+            </div>
+            <div class="field-text">
+                <input type="text" id="type-field">
             </div>
         </div>
+        <div class="field">
+            <div class="field-label">
+                <label for="power-field">Power</label>
+            </div>
+            <div class="field-text">
+                <input type="number" id="power-field">
+            </div>
+        </div>
+        <div class="field">
+            <div class="field-label">
+                <label for="number-field">Number of lamps</label>
+            </div>
+            <div class="field-text">
+                <input type="number" id="number-field">
+            </div>
+        </div>
+        <div class="field">
+            <div class="field-label">
+                <label for="name-field">Name of creator</label>
+            </div>
+            <div class="field-text">
+                <input type="text" id="name-field">
+            </div>
+        </div>
+        <div class="field">
+            <input type="button" value="Add" onclick="validateInput()">
+        </div>
+    </section>
+    <section class="editing-form" id="editing-content">
+        <section id="screen-editing">
+        </section>
+        <section class="divide">
+
+        </section>
+        <section class="adding-form">
+            <div class="field">
+                <div class="field-label">
+                    <label for="type-edit-field">Type</label>
+                </div>
+                <div class="field-text">
+                    <input type="text" id="type-edit-field">
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">
+                    <label for="power-edit-field">Power</label>
+                </div>
+                <div class="field-text">
+                    <input type="number" id="power-edit-field">
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">
+                    <label for="number-edit-field">Number of lamps</label>
+                </div>
+                <div class="field-text">
+                    <input type="number" id="number-edit-field">
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">
+                    <label for="name-edit-field">Name of creator</label>
+                </div>
+                <div class="field-text">
+                    <input type="text" id="name-edit-field">
+                </div>
+            </div>
+            <div class="field">
+                <input type="button" value="Save changes" onclick="changeObject()">
+            </div>
+        </section>
     </section>
     <script src="script.js"></script>
 </body>

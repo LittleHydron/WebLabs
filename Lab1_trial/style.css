@@ -1,14 +1,12 @@
-body{
-    display: flex;
-}
-
 #screen{
-    width: 50%;
+    width: max-content;
+}
+#screen-editing{
+    width: max-content;
 }
 
 .Form{
-    border-left-width: 2px;
-    width: 50%;
+    width: max-content;
 }
 
 .Form-element{
@@ -24,11 +22,53 @@ body{
     padding: 10px;
 }
 
-.content{
-    margin: auto auto;
+.home-content{
+    padding-top: 50px;
+    display: flex;
+    width: max-content;
+    margin: auto;
 }
 
 table{
     border: solid black;
     margin: 20px auto;
+}
+
+.link{
+    padding: 0 100px;
+}
+
+.navigation{
+    margin: auto;
+    width: max-content;
+}
+
+.field-label{
+    margin: 0 auto;
+    width: max-content;
+}
+
+.field{
+    width: max-content;
+    margin: 40px auto;
+}
+
+.adding-form{
+    margin: 50px auto;
+    border: solid 2px gray;
+    width: max-content;
+    height: 421px;
+    padding: 0 20px;
+    border-radius: 20px;
+}
+
+.editing-form{
+    width: max-content;
+    display: flex;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.divide{
+    width: 200px;
 }

@@ -1,7 +1,27 @@
+let cntOfAddedChildren = 0;
+let screen = document.querySelector("#screen");
+let screenEditing = document.querySelector("#screen-editing");
+let summaryPower = document.querySelector("#summary-power");
+let creatorNameForQuery = document.getElementById("input");
+let typeForAdding = document.getElementById("type-field");
+let powerForAdding = document.getElementById("power-field");
+let numberForAdding = document.getElementById("number-field");
+let nameForAdding = document.getElementById("name-field");
+let typeForEditing = document.getElementById("type-edit-field");
+let powerForEditing = document.getElementById("power-edit-field");
+let numberForEditing = document.getElementById("number-edit-field");
+let nameForEditing = document.getElementById("name-edit-field");
+let homeContent = document.getElementById("home-content");
+let addingContent = document.getElementById("adding-content");
+let editingContent = document.getElementById("editing-content");
+let workingScreen = screen;
+let indexForChanging = -1;
+
+
 function findByCreatorName(arrayOfObjects){
     killChild();
-    let name = document.getElementById("input").value;
-    document.getElementById("input").value = "";
+    let name = creatorNameForQuery.value;
+    creatorNameForQuery.value = "";
     clearScreen();
     currentArray = arrayOfObjects.filter((item)=>{return item.creatorName === name});
     displayContent(currentArray);
@@ -16,12 +36,9 @@ function sortByLamps(arrayOfObjects){
     displayContent(arrayOfObjects);
 }
 
-let cntOfAddedChildren = 0;
-let summary_power = document.querySelector("#summary-power");
-
 function killChild(){
-    if (summary_power !== null) {
-        summary_power.style.display = "none";
+    if (summaryPower !== null) {
+        summaryPower.style.display = "none";
     }
 }
 
@@ -29,10 +46,10 @@ function countByPower(arrayOfObjects){
     let cnt =  arrayOfObjects.reduce((result, element) => {
         return result + element.power;
     }, 0);
-    if (summary_power.style.display === "none") {
-        summary_power.style.display = "block";
+    if (summaryPower.style.display === "none") {
+        summaryPower.style.display = "block";
         if (cntOfAddedChildren === 0) {
-            summary_power.insertAdjacentHTML("afterbegin", `
+            summaryPower.insertAdjacentHTML("afterbegin", `
             <div><h4> Summary power: ${cnt} </h4></div>`);
             ++ cntOfAddedChildren;
         }
@@ -42,6 +59,41 @@ function countByPower(arrayOfObjects){
     }
 }
 
+function fillEditingForm(index){
+    typeForEditing.value = arrayOfObjects[index].type;
+    powerForEditing.value = arrayOfObjects[index].power;
+    numberForEditing.value = arrayOfObjects[index].numOfLamps;
+    nameForEditing.value = arrayOfObjects[index].creatorName;
+    indexForChanging = index;
+}
+
+function changeObject(){
+    if (indexForChanging === -1){
+        alert("You must choose a lighter to edit!");
+        return;
+    }
+    let type = typeForEditing.value;
+    let power = powerForEditing.value;
+    let number = numberForEditing.value;
+    let name = nameForEditing.value;
+    if (type.length === 0 || power.length === 0 || number.length === 0 || name.length === 0){
+        alert("All fields must be non-empty!");
+    }else{
+        if (parseInt(power) < 0 || parseInt(number) < 0){
+            alert("Power and Number of lamps must be a positive integer!");
+        }else{
+            typeForEditing.value = "";
+            powerForEditing.value = "";
+            numberForEditing.value = "";
+            nameForEditing.value = "";
+            alert("Lighter was edited successfully!");
+            arrayOfObjects[indexForChanging] = new Lighter(type, parseInt(power), parseInt(number), name);
+            reset();
+        }
+    }
+    indexForChanging = -1;
+}
+
 function displayContent(arrayOfObjects){
     if (arrayOfObjects.length === 0){
         let div = document.createElement("div");
@@ -49,11 +101,15 @@ function displayContent(arrayOfObjects){
             <div><h4> No data :( </h4></div>`);
         div.style.margin = "auto";
         div.style.width = "max-content";
-        screen.appendChild(div);
+        workingScreen.appendChild(div);
         return;
     }
+    let index = 0;
     for (let element of arrayOfObjects){
         let div = document.createElement("div");
+        if (editingContent.style.display !== "none"){
+            div.id = "filling-" + (index ++);
+        }
         div.innerHTML = `
             <table>
                 <tr>
@@ -74,25 +130,79 @@ function displayContent(arrayOfObjects){
                 </tr>
             </table>
         `;
-        screen.appendChild(div);
+        workingScreen.appendChild(div);
+    }
+    if (editingContent.style.display !== "none"){
+        for (let i=0; i<index; ++ i){
+            let div = document.querySelector("#filling-" + i);
+            div.addEventListener('click', (event)=>{
+                fillEditingForm(i);
+            });
+        }
     }
 }
 
 function clearScreen(){
     cntOfAddedChildren = 0;
-    while(screen.firstChild){
-        screen.removeChild(screen.lastChild);
+    while(workingScreen.firstChild){
+        workingScreen.removeChild(workingScreen.lastChild);
     }
-    screen.insertAdjacentHTML("afterbegin", `<section style="display: none; width: max-content; margin: auto;" id = "summary-power">
+    if (homeContent.style.display !== "none"){
+        screen.insertAdjacentHTML("afterbegin", `<section style="display: none; width: max-content; margin: auto;" id = "summary-power">
 
         </section>`);
-    summary_power = document.querySelector("#summary-power");
+        summaryPower = document.querySelector("#summary-power");
+    }
 }
 
 function reset(){
     currentArray = [...arrayOfObjects];
     clearScreen();
     displayContent(currentArray);
+}
+
+function validateInput(){
+    let type = typeForAdding.value;
+    let power = powerForAdding.value;
+    let number = numberForAdding.value;
+    let name = nameForAdding.value;
+    if (type.length === 0 || power.length === 0 || number.length === 0 || name.length === 0){
+        alert("All fields must be non-empty!");
+    }else{
+        if (parseInt(power) < 0 || parseInt(number) < 0){
+            alert("Power and Number of lamps must be a positive integer!");
+        }else{
+            typeForAdding.value = "";
+            powerForAdding.value = "";
+            numberForAdding.value = "";
+            nameForAdding.value = "";
+            alert("Lighter was added successfully!");
+            arrayOfObjects.push(new Lighter(type, parseInt(power), parseInt(number), name));
+        }
+    }
+}
+
+function switchToHome(){
+    homeContent.style.display = "flex";
+    addingContent.style.display = "none";
+    editingContent.style.display = "none";
+    workingScreen = screen;
+    reset();
+}
+
+function switchToAdding(){
+    homeContent.style.display = "none";
+    addingContent.style.display = "block";
+    editingContent.style.display = "none";
+}
+
+function switchToEditing(){
+    homeContent.style.display = "none";
+    addingContent.style.display = "none";
+    editingContent.style.display = "flex";
+    workingScreen = screenEditing;
+    indexForChanging = -1;
+    reset();
 }
 
 class Lighter{
@@ -122,6 +232,4 @@ let arrayOfObjects = [
 
 let currentArray = [...arrayOfObjects];
 
-let screen = document.querySelector("#screen");
-
-displayContent(arrayOfObjects);
+switchToHome();
