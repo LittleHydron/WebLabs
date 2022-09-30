@@ -17,6 +17,7 @@ let editingContent = document.getElementById("editing-content");
 let workingScreen = screen;
 let indexForChanging = -1;
 
+const BASE_URL = 'http://127.0.0.1:5000/';
 
 function findByCreatorName(arrayOfObjects){
     killChild();
@@ -170,7 +171,7 @@ function validateInput(){
         alert("All fields must be non-empty!");
     }else{
         if (parseInt(power) < 0 || parseInt(number) < 0){
-            alert("Power and Number of lamps must be a positive integer!");
+            alert("Power and Number of lamps must be positive integers!");
         }else{
             typeForAdding.value = "";
             powerForAdding.value = "";
@@ -212,12 +213,6 @@ class Lighter{
         this.numOfLamps = numOfLamps;
         this.creatorName = creatorName;
     }
-
-    toString(){
-        return "type: " + this.type +
-            " <p> power: " + this.power + " <p> number of Lamps: " +
-            this.numOfLamps + " <p> creator: " + this.creatorName + "}";
-    }
 }
 
 let arrayOfObjects = [
@@ -229,6 +224,16 @@ let arrayOfObjects = [
     new Lighter("fs", 9, 11, "Pavlo"),
     new Lighter("fs", 9, 0, "Buzz")
 ];
+
+for (let lighter of arrayOfObjects){
+    const params = {
+        method: "POST",
+        body: lighter
+    };
+    fetch(BASE_URL + 'lighter', params).then(()=>{
+        console.log(lighter);
+    });
+}
 
 let currentArray = [...arrayOfObjects];
 
