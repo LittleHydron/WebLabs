@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+}
+
+header{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.header_nav{
+    display: flex;
+    width: max-content;
+}
+
+a{
+    padding: 2px 10px;
+    margin-left: 100px;
+    text-decoration: none;
+    color: black;
+    height: max-content;
+    font-size: 20px;
+}
+
+a:hover{
+    background-color: lightgray;
+    border-radius: 15px;
+}
+
+a:first-child{
+    margin: 0;
+}
+
+.logo{
+    width: 33%;
+}
+
+.el{
+    width: 33%;
+}

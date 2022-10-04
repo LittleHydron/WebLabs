@@ -1,0 +1,27 @@
+@import 'Header.css';
+@import 'Description.css';
+@import 'SectionWithTiles.css';
+@import 'Footer.css';
+
+*{
+    padding: 0;
+}
+
+.App{
+    /*border: 1px solid black;*/
+    width: 1840px;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    width: 1840px;
+    /*border: 1px solid green;*/
+    margin: auto;
+}
+
+.inside_content{
+    width: 80%;
+    /*border: 2px solid black;*/
+    margin: 30px auto 0 auto;
+}

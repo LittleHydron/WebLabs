@@ -1,0 +1,32 @@
+.Tile{
+    width: 220px;
+    /*border: 1px solid red;*/
+    text-align: center;
+}
+
+.tile_text{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.tile_heading{
+    margin-top: 10px;
+}
+
+.tile_list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.more_btn_div{
+    width: max-content;
+    margin: 20px auto;
+}
+
+.more_btn{
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
