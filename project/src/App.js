@@ -16,10 +16,10 @@ class Lighter{
 
 let array = [
     new Lighter(0, 'pnp', 12, 'Sasha', 1),
-    new Lighter(1, '1pnp', 112, 'Sa1sha', 10),
-    new Lighter(2, 'p1np', 12, 'Sasha', 1),
-    new Lighter(3, 'pn1p', 12, 'Sasha', 1),
-    new Lighter(4, 'pnp1', 12, 'Sasha', 1)
+    new Lighter(1, '1pnp', 136, 'Illia', 18),
+    new Lighter(2, 'p1np', 4, 'Yulia', 96),
+    new Lighter(3, 'pn1p', 2, 'Tarass', 11),
+    new Lighter(4, 'pnp1', 12, 'Googol', 89)
 ]
 
 function App() {
