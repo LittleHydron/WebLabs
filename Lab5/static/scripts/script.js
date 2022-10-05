@@ -1,4 +1,4 @@
-import {getRequest, postRequest, patchRequest} from "./api.js";
+import {getRequest, postRequest, patchRequest, deleteRequest} from "./api.js";
 
 let cntOfAddedChildren = 0;
 let screen = document.querySelector("#screen");
@@ -96,6 +96,19 @@ async function changeObject(){
         }
     }
     indexForChanging = -1;
+}
+
+async function deleteObject(){
+    if (indexForChanging === -1){
+        alert("You must choose a lighter to delete!");
+        return;
+    }
+    await deleteRequest(arrayOfObjects[indexForChanging].id);
+    await reset();
+    typeForEditing.value = "";
+    powerForEditing.value = "";
+    numberForEditing.value = "";
+    nameForEditing.value = "";
 }
 
 function displayContent(){
@@ -257,6 +270,10 @@ document.getElementById("validateInputButton").addEventListener('click', () => {
 
 document.getElementById("save_changes").addEventListener('click', () => {
     changeObject();
+});
+
+document.getElementById("delete").addEventListener('click', () => {
+    deleteObject();
 });
 
 await switchToHome();

@@ -12,8 +12,7 @@ async function baseRequest({method="GET", body = {}, headers = {}}){
         if (headers){
             params.headers = headers;
         }
-        let result = await fetch(RES_URL, params);
-        return result.json();
+        return (await fetch(RES_URL, params));
     }
     catch(error){
         console.log(error);
@@ -21,13 +20,17 @@ async function baseRequest({method="GET", body = {}, headers = {}}){
 }
 
 export async function getRequest(){
-    return await baseRequest({method: "GET", body: null, headers: null});
+    return (await baseRequest({method: "GET", body: null, headers: null})).json();
 }
 
 export async function postRequest(body){
-    return await baseRequest({method: "POST", body: body, headers: {"Content-Type": "application/json"}});
+    return (await baseRequest({method: "POST", body: body, headers: {"Content-Type": "application/json"}})).json();
 }
 
 export async function patchRequest(body){
-    return await baseRequest({method: "PATCH", body: body, headers: {"Content-Type": "application/json"}});
+    return (await baseRequest({method: "PATCH", body: body, headers: {"Content-Type": "application/json"}})).json();
+}
+
+export async function deleteRequest(id){
+    return (await baseRequest({method: "DELETE", body:{id: id}, headers: {"Content-Type": "application/json"}}));
 }
