@@ -5,7 +5,6 @@ const SectionWithTiles = ({tiles}) => {
     return (
         <div className="inside_content">
             <div className="tile_list">
-                {/*<Tile tile={{...tiles[0]}}/>*/}
                 {tiles.map(
                     tile => <Tile tile={{...tile}} key={tile.id}/>
                 )}
