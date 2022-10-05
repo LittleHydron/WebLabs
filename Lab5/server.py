@@ -1,9 +1,10 @@
 from flask import Flask
+from flask_cors import CORS
 from flask_restful import Api, marshal_with, Resource, fields, reqparse, abort
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:database_password@localhost/Lighter'
 app.config['SECRET_KEY'] = 'secret'
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

@@ -38,6 +38,10 @@ table{
     padding: 0 100px;
 }
 
+.link:hover{
+    cursor: pointer;
+}
+
 .navigation{
     margin: auto;
     width: max-content;

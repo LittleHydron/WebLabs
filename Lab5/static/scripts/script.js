@@ -1,3 +1,5 @@
+import {getRequest, postRequest, patchRequest} from "./api.js";
+
 let cntOfAddedChildren = 0;
 let screen = document.querySelector("#screen");
 let screenEditing = document.querySelector("#screen-editing");
@@ -17,24 +19,22 @@ let editingContent = document.getElementById("editing-content");
 let workingScreen = screen;
 let indexForChanging = -1;
 
-const BASE_URL = 'http://127.0.0.1:5000/';
-
-function findByCreatorName(arrayOfObjects){
+function findByCreatorName(){
     killChild();
     let name = creatorNameForQuery.value;
     creatorNameForQuery.value = "";
     clearScreen();
-    currentArray = arrayOfObjects.filter((item)=>{return item.creatorName === name});
-    displayContent(currentArray);
+    currentArray = currentArray.filter((item)=>{return item.creatorName === name});
+    displayContent();
 }
 
-function sortByLamps(arrayOfObjects){
+function sortByLamps(){
     killChild();
-    arrayOfObjects.sort((a, b) => {
+    currentArray.sort((a, b) => {
         return a.numOfLamps - b.numOfLamps;
     });
     clearScreen()
-    displayContent(arrayOfObjects);
+    displayContent();
 }
 
 function killChild(){
@@ -43,8 +43,8 @@ function killChild(){
     }
 }
 
-function countByPower(arrayOfObjects){
-    let cnt =  arrayOfObjects.reduce((result, element) => {
+function countByPower(){
+    let cnt =  currentArray.reduce((result, element) => {
         return result + element.power;
     }, 0);
     if (summaryPower.style.display === "none") {
@@ -68,7 +68,7 @@ function fillEditingForm(index){
     indexForChanging = index;
 }
 
-function changeObject(){
+async function changeObject(){
     if (indexForChanging === -1){
         alert("You must choose a lighter to edit!");
         return;
@@ -87,16 +87,19 @@ function changeObject(){
             powerForEditing.value = "";
             numberForEditing.value = "";
             nameForEditing.value = "";
-            alert("Lighter was edited successfully!");
+            let id = arrayOfObjects[indexForChanging].id;
             arrayOfObjects[indexForChanging] = new Lighter(type, parseInt(power), parseInt(number), name);
-            reset();
+            arrayOfObjects[indexForChanging].id = id;
+            await patchRequest(arrayOfObjects[indexForChanging]);
+            await reset();
+            alert("Lighter was edited successfully!");
         }
     }
     indexForChanging = -1;
 }
 
-function displayContent(arrayOfObjects){
-    if (arrayOfObjects.length === 0){
+function displayContent(){
+    if (currentArray.length === 0){
         let div = document.createElement("div");
         div.insertAdjacentHTML("afterbegin", `
             <div><h4> No data :( </h4></div>`);
@@ -106,7 +109,7 @@ function displayContent(arrayOfObjects){
         return;
     }
     let index = 0;
-    for (let element of arrayOfObjects){
+    for (let element of currentArray){
         let div = document.createElement("div");
         if (editingContent.style.display !== "none"){
             div.id = "filling-" + (index ++);
@@ -136,7 +139,7 @@ function displayContent(arrayOfObjects){
     if (editingContent.style.display !== "none"){
         for (let i=0; i<index; ++ i){
             let div = document.querySelector("#filling-" + i);
-            div.addEventListener('click', (event)=>{
+            div.addEventListener('click', ()=>{
                 fillEditingForm(i);
             });
         }
@@ -156,13 +159,14 @@ function clearScreen(){
     }
 }
 
-function reset(){
+async function reset(){
+    arrayOfObjects = await getRequest();
     currentArray = [...arrayOfObjects];
     clearScreen();
     displayContent(currentArray);
 }
 
-function validateInput(){
+async function validateInput(){
     let type = typeForAdding.value;
     let power = powerForAdding.value;
     let number = numberForAdding.value;
@@ -178,17 +182,17 @@ function validateInput(){
             numberForAdding.value = "";
             nameForAdding.value = "";
             alert("Lighter was added successfully!");
-            arrayOfObjects.push(new Lighter(type, parseInt(power), parseInt(number), name));
+            await postRequest(new Lighter(type, parseInt(power), parseInt(number), name));
         }
     }
 }
 
-function switchToHome(){
+async function switchToHome(){
     homeContent.style.display = "flex";
     addingContent.style.display = "none";
     editingContent.style.display = "none";
     workingScreen = screen;
-    reset();
+    await reset();
 }
 
 function switchToAdding(){
@@ -197,13 +201,13 @@ function switchToAdding(){
     editingContent.style.display = "none";
 }
 
-function switchToEditing(){
+async function switchToEditing(){
     homeContent.style.display = "none";
     addingContent.style.display = "none";
     editingContent.style.display = "flex";
     workingScreen = screenEditing;
     indexForChanging = -1;
-    reset();
+    await reset();
 }
 
 class Lighter{
@@ -215,26 +219,44 @@ class Lighter{
     }
 }
 
-let arrayOfObjects = [
-    new Lighter("fr", 12, 19, "Sasha"),
-    new Lighter("qwert", 11, 1, "Buzz"),
-    new Lighter("pokl", 10, 9, "Kokojamba"),
-    new Lighter("akl", 120, 21, "Buzz"),
-    new Lighter("fsg", 111, 113, "Borys"),
-    new Lighter("fs", 9, 11, "Pavlo"),
-    new Lighter("fs", 9, 0, "Buzz")
-];
-
-for (let lighter of arrayOfObjects){
-    const params = {
-        method: "POST",
-        body: lighter
-    };
-    fetch(BASE_URL + 'lighter', params).then(()=>{
-        console.log(lighter);
-    });
-}
+let arrayOfObjects = []
 
 let currentArray = [...arrayOfObjects];
 
-switchToHome();
+document.getElementById("sort-by").addEventListener('click', () => {
+    sortByLamps();
+});
+
+document.getElementById("find-by-name").addEventListener('click', () => {
+    findByCreatorName();
+});
+
+document.getElementById("reset").addEventListener('click', () => {
+    reset();
+});
+
+document.getElementById("count-summary-power").addEventListener('click', () => {
+    countByPower();
+});
+
+document.getElementById("switchToHomeButton").addEventListener('click', () => {
+    switchToHome();
+});
+
+document.getElementById("switchToAddingButton").addEventListener('click', () => {
+    switchToAdding();
+});
+
+document.getElementById("switchToEditingButton").addEventListener('click', () => {
+    switchToEditing();
+});
+
+document.getElementById("validateInputButton").addEventListener('click', () => {
+    validateInput();
+});
+
+document.getElementById("save_changes").addEventListener('click', () => {
+    changeObject();
+});
+
+await switchToHome();

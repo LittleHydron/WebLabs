@@ -13,9 +13,9 @@
 <body>
     <header class="head">
         <nav class="navigation">
-            <input id = "switchToHomeButton" type="button" class="link" value="Home">
-            <input id = "switchToAddingButton" type="button" class="link" value="Add Lighter">
-            <input id = "switchToEditingButton" type="button" class="link" value="Edit Lighter">
+            <a id = "switchToHomeButton" class="link"> Home </a>
+            <a id = "switchToAddingButton" class="link"> Add Lighter </a>
+            <a id = "switchToEditingButton" class="link"> Edit Lighter </a>
         </nav>
     </header>
     <section class="home-content" id="home-content">
@@ -30,7 +30,7 @@
         <section class = "Form">
             <div class="home-content">
                 <div class="container">
-                    <div class = "Form-element"><input class = "button" type="button" id = "sort-by" value = "Sort by number of lamps""></div>
+                    <div class = "Form-element"><input class = "button" type="button" id = "sort-by" value = "Sort by number of lamps"></div>
                     <div class = "Form-element">
                         <label for="input">Enter creator's name for search</label>
                     </div>
@@ -38,10 +38,10 @@
                         <input type="text" id = "input">
                     </div>
                     <div class="Form-element">
-                        <input class = "button" type="button" id = "find-by-name" value = "Find by the name of creator" onclick="findByCreatorName(arrayOfObjects)">
+                        <input class = "button" type="button" id = "find-by-name" value = "Find by the name of creator">
                     </div>
-                    <div class = "Form-element"><input class = "button" type="button" id = "count-summary-power" value = "Count Summary Power" onclick="countByPower(currentArray)"></div>
-                    <div class = "Form-element"><input class = "button" type="button" id = "reset" value = "Reset" onclick="reset()"></div>
+                    <div class = "Form-element"><input class = "button" type="button" id = "count-summary-power" value = "Count Summary Power"></div>
+                    <div class = "Form-element"><input class = "button" type="button" id = "reset" value = "Reset"></div>
                 </div>
             </div>
         </section>
@@ -124,7 +124,7 @@
                 </div>
             </div>
             <div class="field">
-                <input type="button" value="Save changes" onclick="changeObject()">
+                <input id = "save_changes" type="button" value="Save changes">
             </div>
         </section>
     </section>
