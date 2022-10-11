@@ -1,0 +1,57 @@
+.bottom_part{
+    text-align: center;
+    border-top: 1px solid black;
+    padding: 20px 0;
+    font-size: 12px;
+}
+
+footer{
+    margin-top: 100px;
+    /*border: 1px solid black;*/
+}
+
+.top_part{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.left_part{
+    width: 33%;
+    font-size: 15px;
+}
+
+.social_part{
+    display: flex;
+    justify-content: flex-end;
+    height: max-content;
+    width: 33%;
+    /*border: 1px solid red;*/
+}
+
+.logo_part{
+    height: max-content;
+    width: 33%;
+}
+
+.no_logo{
+    margin: auto;
+    width: max-content;
+    display: flex;
+    /*border: 1px solid red;*/
+}
+
+.no_logo_soc{
+    margin-left: auto;
+    width: max-content;
+    display: flex;
+    /*border: 1px solid red;*/
+}
+
+/*.branding_stuff{*/
+/*    padding-top: 10px;*/
+/*}*/
+
+.lorem_ipsum{
+    padding-top: 2px;
+}
