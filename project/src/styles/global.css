@@ -1,7 +1,10 @@
 @import 'Header.css';
-@import 'Description.css';
-@import 'SectionWithTiles.css';
 @import 'Footer.css';
+@import 'Catalog.css';
+@import 'ListItem.css';
+@import 'Description.css';
+@import 'FullItemList.css';
+@import 'SectionWithTiles.css';
 
 *{
     padding: 0;
@@ -22,7 +25,25 @@ body{
 }
 
 .inside_content{
-    width: 80%;
+    width: 92%;
     /*border: 2px solid black;*/
     margin: 30px auto 0 auto;
+}
+
+.wrap{
+    margin: auto;
+    border: 1px solid black;
+    width: 80%;
+}
+
+.more_btn{
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.more_btn:hover{
+    cursor: pointer;
 }

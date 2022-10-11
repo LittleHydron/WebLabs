@@ -1,0 +1,28 @@
+.filterPartContent{
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
+    margin: auto;
+}
+.filterPart{
+    width: 80%;
+    margin: auto;
+    border: 1px solid black;
+    padding: 15px 0;
+}
+
+.leftPart{
+    width: 50%;
+}
+
+.option{
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 26px;
+    background-color: white;
+    width: 30%;
+}
+
+.option:first-child{
+    margin-left: 0;
+}

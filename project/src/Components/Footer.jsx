@@ -7,7 +7,7 @@ import g from './images/g.png';
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className="wrap">
             <div className="inside_content">
                 <div className="top_part">
                     <div className="left_part">
