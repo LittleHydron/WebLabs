@@ -28,7 +28,7 @@ let array = [
     new Lighter('1pnp', 136, 'Illia', 18),
     new Lighter('p1np', 4, 'Yulia', 96),
     new Lighter('pn1p', 2, 'Tarass', 11),
-    new Lighter('pnp1', 12, 'Googol', 89),
+    new Lighter('ppn18', 6, 'Nastasia', 40),
     new Lighter('pnp1', 245, 'Gogol', 23),
     new Lighter('p2p1', 4, 'Grogol', 2455),
     new Lighter('p2p1', 1, 'Michael', 64),
