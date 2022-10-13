@@ -14,6 +14,7 @@ import React from "react";
 
 class Lighter{
     constructor(type, numOfLamps, creatorName, power) {
+        this.id = null;
         this.type = type;
         this.numOfLamps = numOfLamps;
         this.creatorName = creatorName;
