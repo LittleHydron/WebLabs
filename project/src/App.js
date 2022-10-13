@@ -1,5 +1,5 @@
 import './styles/global.css';
-// import Header from "./Components/Header";
+import Header from "./Components/Header";
 import SectionWithTiles from "./Components/SectionWithTiles";
 import FullItemList from "./Components/FullItemList";
 import Description from "./Components/Description";
@@ -8,10 +8,8 @@ import Footer from "./Components/Footer";
 import {
     BrowserRouter as Router,
     Switch,
-    Route, Link
+    Route
 } from "react-router-dom";
-import logo from "./Components/images/no_logo.png";
-import srch from "./Components/images/searchImage.png";
 import React from "react";
 
 class Lighter{
@@ -44,20 +42,7 @@ function App() {
   return (
     <div className="App">
         <Router>
-        <header className="wrap">
-            <div className="logo"><img src={logo} alt="logo..."/></div>
-            <nav className="header_nav">
-                <Link to="/" className="header_nav_button">Home</Link>
-                <Link to="/catalog" className="header_nav_button">Catalog</Link>
-                <Link to="/cart" className="header_nav_button">Cart</Link>
-            </nav>
-            <div className = "el">
-                <div className="searchField" id = "searchField">
-                    <div id="searchImage"><img src={srch} alt="search..."/></div>
-                    <input type="text" id = "searchInput"/>
-                </div>
-            </div>
-        </header>
+            <Header/>
             <Switch>
                 <Route path="/catalog">
                     <Catalog tiles={array}/>
