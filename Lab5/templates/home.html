@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lighter</title>
+    
+    <link rel="stylesheet" href= "../static/styles/style.css">
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+    <header class="head">
+        <nav class="navigation">
+            <a id = "switchToHomeButton" class="link"> Home </a>
+            <a id = "switchToAddingButton" class="link"> Add Lighter </a>
+            <a id = "switchToEditingButton" class="link"> Edit Lighter </a>
+        </nav>
+    </header>
+    <section class="home-content" id="home-content">
+        <section id = "screen">
+            <section style="display: none; width: max-content; margin: auto;" id = "summary-power">
+
+            </section>
+        </section>
+        <section class="divide">
+
+        </section>
+        <section class = "Form">
+            <div class="home-content">
+                <div class="container">
+                    <div class = "Form-element"><input class = "button" type="button" id = "sort-by" value = "Sort by number of lamps"></div>
+                    <div class = "Form-element">
+                        <label for="input">Enter creator's name for search</label>
+                    </div>
+                    <div class = "Form-element">
+                        <input type="text" id = "input">
+                    </div>
+                    <div class="Form-element">
+                        <input class = "button" type="button" id = "find-by-name" value = "Find by the name of creator">
+                    </div>
+                    <div class = "Form-element"><input class = "button" type="button" id = "count-summary-power" value = "Count Summary Power"></div>
+                    <div class = "Form-element"><input class = "button" type="button" id = "reset" value = "Reset"></div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section class="adding-form" id="adding-content">
+        <div class="field">
+            <div class="field-label">
+                <label for="type-field">Type</label>
+            </div>
+            <div class="field-text">
+                <input type="text" id="type-field">
+            </div>
+        </div>
+        <div class="field">
+            <div class="field-label">
+                <label for="power-field">Power</label>
+            </div>
+            <div class="field-text">
+                <input type="number" id="power-field">
+            </div>
+        </div>
+        <div class="field">
+            <div class="field-label">
+                <label for="number-field">Number of lamps</label>
+            </div>
+            <div class="field-text">
+                <input type="number" id="number-field">
+            </div>
+        </div>
+        <div class="field">
+            <div class="field-label">
+                <label for="name-field">Name of creator</label>
+            </div>
+            <div class="field-text">
+                <input type="text" id="name-field">
+            </div>
+        </div>
+        <div class="field">
+            <input id = "validateInputButton" type="button" value="Add">
+        </div>
+    </section>
+    <section class="editing-form" id="editing-content">
+        <section id="screen-editing">
+        </section>
+        <section class="divide">
+
+        </section>
+        <section class="adding-form">
+            <div class="field">
+                <div class="field-label">
+                    <label for="type-edit-field">Type</label>
+                </div>
+                <div class="field-text">
+                    <input type="text" id="type-edit-field">
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">
+                    <label for="power-edit-field">Power</label>
+                </div>
+                <div class="field-text">
+                    <input type="number" id="power-edit-field">
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">
+                    <label for="number-edit-field">Number of lamps</label>
+                </div>
+                <div class="field-text">
+                    <input type="number" id="number-edit-field">
+                </div>
+            </div>
+            <div class="field">
+                <div class="field-label">
+                    <label for="name-edit-field">Name of creator</label>
+                </div>
+                <div class="field-text">
+                    <input type="text" id="name-edit-field">
+                </div>
+            </div>
+            <div class="field">
+                <input id = "save_changes" type="button" value="Save changes">
+                <input id = "delete" type="button" value="Delete">
+            </div>
+        </section>
+    </section>
+<!--    <script type="text/javascript" src="{{ url_for('static',filename='scripts/script.js') }}"></script>-->
+    <script type="module" src="../static/scripts/script.js"></script>
+</body>
+</html>
