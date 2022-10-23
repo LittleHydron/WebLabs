@@ -1,3 +1,4 @@
+@import 'Item.css';
 @import 'Header.css';
 @import 'Footer.css';
 @import 'Catalog.css';
@@ -42,6 +43,12 @@ body{
     color: white;
     border: none;
     border-radius: 10px;
+}
+
+.white{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
 }
 
 .more_btn:hover{

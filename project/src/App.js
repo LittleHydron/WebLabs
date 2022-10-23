@@ -1,25 +1,27 @@
 import './styles/global.css';
-// import Header from "./Components/Header";
+import Header from "./Components/Header";
 import SectionWithTiles from "./Components/SectionWithTiles";
 import FullItemList from "./Components/FullItemList";
 import Description from "./Components/Description";
 import Catalog from "./Components/Catalog";
 import Footer from "./Components/Footer";
+import Item from "./Components/Item";
 import {
     BrowserRouter as Router,
     Switch,
-    Route, Link
+    Route
 } from "react-router-dom";
-import logo from "./Components/images/no_logo.png";
-import srch from "./Components/images/searchImage.png";
-import React from "react";
+import React, {useState} from "react";
+import img from "./Components/images/big_lamp.jpeg";
 
 class Lighter{
     constructor(type, numOfLamps, creatorName, power) {
+        this.id = null;
         this.type = type;
         this.numOfLamps = numOfLamps;
         this.creatorName = creatorName;
         this.power = power;
+        this.description = "";
     }
 }
 
@@ -36,51 +38,54 @@ let array = [
     new Lighter('1np1', 6, 'Googol', 19)
 ]
 
+let descriptions=  [
+    "This lamp is so great that my mother decided to light it every night so that my neighbours can't sleep to make them see this lamp whole night.",
+    "Fabulous lamp for your crafting table, that will fully express great and wild nature of your imagination and creativity.",
+    "Masterpiece for those, who is willing to show their friends how great, smart and nearly perfect they are.",
+];
+
 for (let i=0; i<array.length; ++ i){
     array[i].id = i;
+    array[i].description = descriptions[i%3];
 }
 
+export let itemContext = React.createContext(null);
+
 function App() {
-  return (
-    <div className="App">
-        <Router>
-        <header className="wrap">
-            <div className="logo"><img src={logo} alt="logo..."/></div>
-            <nav className="header_nav">
-                <Link to="/" className="header_nav_button">Home</Link>
-                <Link to="/catalog" className="header_nav_button">Catalog</Link>
-                <Link to="/cart" className="header_nav_button">Cart</Link>
-            </nav>
-            <div className = "el">
-                <div className="searchField" id = "searchField">
-                    <div id="searchImage"><img src={srch} alt="search..."/></div>
-                    <input type="text" id = "searchInput"/>
-                </div>
-            </div>
-        </header>
-            <Switch>
-                <Route path="/catalog">
-                    <Catalog tiles={array}/>
-                    <FullItemList tiles={array}/>
-                </Route>
-                <Route path="/cart">
-                    <h1 style={{
-                        border: "1px solid black",
-                        width: "80%",
-                        margin: "auto",
-                        textAlign: "center",
-                        padding: "100px 0 100px 0"
-                    }}>Coming soon...</h1>
-                </Route>
-                <Route path="/">
-                    <Description/>
-                    <SectionWithTiles tiles = {array}/>
-                </Route>
-            </Switch>
-        </Router>
-      <Footer/>
-    </div>
-  );
+    const [item, setItem] = useState({type: 'none'});
+      return (
+        <div className="App">
+            <itemContext.Provider value = {{item, setItem}}>
+                <Router>
+                    <Switch>
+                        <Route path="/catalog">
+                            <Catalog tiles={array}/>
+                        </Route>
+                        <Route path="/cart">
+                            <Header needSearch={false}/>
+                            <h1 style={{
+                                border: "1px solid black",
+                                width: "80%",
+                                margin: "auto",
+                                textAlign: "center",
+                                padding: "100px 0 100px 0"
+                            }}>Coming soon...</h1>
+                        </Route>
+                        <Route path="/item">
+                            <Header needSearch={false}/>
+                            <Item/>
+                        </Route>
+                        <Route path="/">
+                            <Header needSearch={false}/>
+                            <Description/>
+                            <SectionWithTiles tiles = {array}/>
+                        </Route>
+                    </Switch>
+                </Router>
+              <Footer/>
+            </itemContext.Provider>
+        </div>
+      );
 }
 
 export default App;

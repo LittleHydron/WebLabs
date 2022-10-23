@@ -2,7 +2,13 @@ import React from 'react';
 import image from './images/lamp.png';
 
 const Tile = ({tile}) => {
-    console.log(tile);
+    if (tile.type === "fake item"){
+        return (
+            <div className="Tile1">
+
+            </div>
+        );
+    }
     return (
         <div className="Tile">
             <img src={image} alt="..."/>

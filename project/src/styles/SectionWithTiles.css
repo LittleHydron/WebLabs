@@ -3,6 +3,11 @@
     text-align: center;
 }
 
+.Tile1{
+    width: 220px;
+    text-align: center;
+}
+
 .Tile:hover{
     border: 1px solid red;
     border-radius: 15px;

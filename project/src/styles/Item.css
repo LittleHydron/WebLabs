@@ -1,0 +1,48 @@
+.item-content{
+    display: flex;
+    width: 70%;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.characteristics_part{
+    display: flex;
+    justify-content: start;
+    width: 250px;
+}
+
+.characteristic{
+    margin-left: 20px;
+    border-radius: 15px;
+    width: max-content;
+    padding: 0 10px;
+    text-align: center;
+    background-color: bisque;
+}
+
+.characteristic:first-child{
+    margin-left: 0;
+}
+
+.item-price{
+    width: 70%;
+    margin: 100px auto 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.field{
+    text-align: center;
+}
+
+.field_part{
+    display: flex;
+}
+
+.button-part{
+    display: flex;
+}
+
+.item-text-part{
+    margin: 50px 0 0 50px;
+}

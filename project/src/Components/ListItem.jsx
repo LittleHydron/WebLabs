@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {itemContext} from '../App';
 import image from './images/lamp.png';
+import {Link} from "react-router-dom";
 
 const ListItem = ({obj}) => {
+    let {item, setItem} = useContext(itemContext);
     if (obj.type === "fake item") return(
         <div style={{width: '20%'}}>
 
@@ -14,7 +17,7 @@ const ListItem = ({obj}) => {
             </div>
             <h3>Created by {obj.creatorName}</h3>
             <div className="stupidText lst">
-                This lamp is so great that my mother decided to light it every night so that my neighbours can't sleep to make them see this lamp whole night.
+                {obj.description}
             </div>
             <div className="pricePart lst">
                 <div className="phrase">
@@ -24,7 +27,13 @@ const ListItem = ({obj}) => {
                     $ {obj.numOfLamps * 100}
                 </div>
             </div>
-            <button className="more_btn lst">View more</button>
+            <div style={{marginTop: '20px'}}>
+            <Link to="/item" className="more_btn lst" onClick={
+                (event) => {
+                    setItem(obj);
+                }
+            }>View more</Link>
+            </div>
         </div>
     );
 };
