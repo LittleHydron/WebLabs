@@ -1,7 +1,6 @@
 import './styles/global.css';
 import Header from "./Components/Header";
 import SectionWithTiles from "./Components/SectionWithTiles";
-import FullItemList from "./Components/FullItemList";
 import Description from "./Components/Description";
 import Catalog from "./Components/Catalog";
 import Footer from "./Components/Footer";
@@ -12,7 +11,6 @@ import {
     Route
 } from "react-router-dom";
 import React, {useState} from "react";
-import img from "./Components/images/big_lamp.jpeg";
 
 class Lighter{
     constructor(type, numOfLamps, creatorName, power) {
