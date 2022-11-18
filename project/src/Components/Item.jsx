@@ -2,8 +2,11 @@ import React, {useContext, useState} from 'react';
 import img from './images/big_lamp.jpeg';
 import {itemContext} from "../App";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import listInsert from "../actions/listInsert";
 
 const Item = () => {
+    let dispatch = useDispatch();
     let {item, setItem} = useContext(itemContext);
     let [number, setNumber] = useState(1);
     return (
@@ -25,19 +28,19 @@ const Item = () => {
                             <div className="field_part">
                                 <div className="field">
                                     Enter amount<br/>
-                                    <input type="number" name="amount" onChange={((event) => {
+                                    <input id="amountField" type="number" name="amount" onChange={((event) => {
                                         event.target.value = '' + Math.max(parseInt(event.target.value), 0);
                                         setNumber(parseInt(event.target.value));
                                     })}/>
                                 </div>
                                 <div className="field">
                                     Choose colour<br/>
-                                    <select>
+                                    <select id="colourSelect">
                                         <option value="white">White</option>
-                                        <option value="white">Green</option>
-                                        <option value="white">Red</option>
-                                        <option value="white">Blue</option>
-                                        <option value="white">Yellow</option>
+                                        <option value="green">Green</option>
+                                        <option value="red">Red</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="yellow">Yellow</option>
                                     </select>
                                 </div>
                             </div>
@@ -47,7 +50,14 @@ const Item = () => {
                     <h2>Price: {item.numOfLamps * 100 * number}$</h2>
                     <div className="button-part">
                         <Link to="/catalog" className="more_btn white">Go back</Link>
-                        <Link to="/item" className="more_btn">Add to cart</Link>
+                        <Link to="/catalog" className="more_btn" onClick={() => {
+                            let colour = document.getElementById("colourSelect").value;
+                            let amount = document.getElementById("amountField").value;
+                            if (amount === "") amount = '1';
+                            dispatch(listInsert(
+                                {body: {...item, color: colour}, amount: parseInt(amount)}
+                            ));
+                        }}>Add to cart</Link>
                     </div>
                 </div>
             </div>

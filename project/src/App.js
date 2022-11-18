@@ -5,6 +5,7 @@ import Description from "./Components/Description";
 import Catalog from "./Components/Catalog";
 import Footer from "./Components/Footer";
 import Item from "./Components/Item";
+import Cart from "./Components/Cart";
 import {
     BrowserRouter as Router,
     Switch,
@@ -26,13 +27,7 @@ function App() {
                         </Route>
                         <Route path="/cart">
                             <Header needSearch={false}/>
-                            <h1 style={{
-                                border: "1px solid black",
-                                width: "80%",
-                                margin: "auto",
-                                textAlign: "center",
-                                padding: "100px 0 100px 0"
-                            }}>Coming soon...</h1>
+                            <Cart/>
                         </Route>
                         <Route path="/item">
                             <Header needSearch={false}/>
