@@ -1,0 +1,27 @@
+.listItem{
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 12px;
+    width: 20%;
+}
+
+.stupidText{
+    text-align: left;
+    margin: auto;
+    font-size: 15px;
+    height: 20%;
+}
+
+.pricePart{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin: auto;
+}
+
+.lst{
+    margin-top: 10px;
+    width: 80%;
+}

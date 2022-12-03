@@ -1,0 +1,17 @@
+.cartItem{
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.control-part{
+    display: flex;
+    height: 40px;
+    margin-top: 13px;
+}
+
+.price{
+    margin-right: 10px;
+}
